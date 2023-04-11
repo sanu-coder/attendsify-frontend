@@ -1,0 +1,23 @@
+.qrcode{
+    display: flex;
+    justify-content: center;
+}
+
+.warning{
+    text-align: left;
+    padding: 20px;
+    border : 2px solid #203a43;
+   
+   color: #203a43;
+    border-radius: 20px;
+    box-shadow: 0px 0px 41px -11px #203a43;
+
+}
+
+.warning:hover{
+    color: white;
+    box-shadow:0px 0px 23px -11px rgba(0,0,0,0.75);
+    border : none;
+    background: radial-gradient(circle farthest-corner at 18.5% 28.5%, #203a43 0, #0f1b27 91%);
+    // background-color: rgb(36, 47, 85);
+}

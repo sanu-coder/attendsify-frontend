@@ -1,0 +1,21 @@
+.sidebar{
+    background: radial-gradient(circle farthest-corner at 18.5% 28.5%,#203a43 0,#0f1b27 91%);
+    min-height: 100%;
+    .menu-title, .menu-icon{
+        color: white!important;
+    }
+    .teacher-name{
+        color: white;
+    }
+    .brand-logo{
+        width: 400px;
+        // height: 350px;
+    }
+    .sidebar-brand{
+        padding: 1.25rem 0 0 0;
+    }
+}
+
+.sidebar .nav .nav-item{
+    padding: 0 1.25rem;
+}

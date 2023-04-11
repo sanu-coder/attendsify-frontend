@@ -1,0 +1,59 @@
+
+
+<div class="container-scroller" style="min-height: 100vh;">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+     
+      <app-navbar1></app-navbar1>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title"><u>Take attendence</u></h4>
+                
+                  <br> <br>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select name="subject" id="subject" [(ngModel)]="subject" (change)="generateQRCode()" class="form-select branches" style="padding: 10px 15px!important;
+                        font-size: 15px!important;border : 1px solid #ebedf2;" >
+                            <option value="">--------------Select--------------</option>
+                            <option *ngFor="let class of classes" [value]="class._id">{{class.subject}} - [{{class.semester 
+                            }}th Semester, {{class.branch}}] </option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="qrcode" *ngIf="qrCodeString">
+                        <qrcode [qrdata]="qrCodeString" [width]="500" [errorCorrectionLevel]="'M'"></qrcode>
+                    </div>
+                      <br>
+                      <p style="text-align: center;">Scan the above QR code in your camera to mark Attendence.</p>
+                      <br>
+                      <hr>
+                      <div class="warning">
+                        Warning : -
+                        <ol>
+                            <li>Dont switch the activity while you are in this page.</li>
+                            <li>Screenshots will be disabled here due to security purpose.</li>
+                   
+                        </ol>
+                      </div>
+
+                </div>
+              </div>
+            </div>
+            <app-manage-attendence [qrCodeString]="qrCodeString" ></app-manage-attendence>
+          </div>
+        </div>
+        
+      </div>
+      
+
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+
+  <!-- Attend today, and achieve tomorrow -->

@@ -1,0 +1,154 @@
+<div class="container-scroller" style="min-height: 100vh;">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+      <app-navbar1></app-navbar1>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row" id="addStudent">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title"><u>Add Students</u></h4>
+                  <br>
+                  <div class="row">
+                    <div class="form-group col-md-12">
+                      <label for="email">Give access : </label>
+                      <div  style="display: flex;"> 
+                        <input type="text" class="form-control mr-2" name="email2" id="email" placeholder="Email" [(ngModel)]="email2" />
+                        <button class="btn btn-primary" style="font-size: 20px;" (click)="emailAccess()"> + </button>
+                        
+                      </div>
+                      <p style="font-size:12px; color: red;padding-top: 2px;padding-bottom: 0;margin-bottom: 0;">Teachers who can view this student</p>
+                      <br>
+                      <div class="row" style="display: flex;justify-content:space-evenly">
+                        <div class="alert alert-primary alert-dismissible fade show col-md-5 alert-size" role="alert" *ngFor="let email of emails;let i= index">
+                          <p style="margin-bottom: 0;">{{email}}</p> 
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="removeEmailAccess(i)">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  
+                  <form class="row forms-sample" [formGroup]="studentRegistrationForm">
+                    <div class="form-group col-md-4">
+                      <label for="fullname">Fullname</label>
+                      <input type="text" class="form-control" id="fullname" placeholder="Full Name" formControlName="fullname"
+                      [ngClass]="{ 'is-invalid': (formSubmitted ||  s['fullname'].touched)
+                            && s['fullname'].errors }"/>
+                      <div class="invalid-feedback" *ngIf="(formSubmitted ||  s['fullname'].touched) && s['fullname'].errors">
+                          <span *ngIf="s['fullname'].errors['required']">{{errorMessages.fullname.required}}</span>
+                          <span *ngIf="s['fullname'].errors['minlength'] || s['fullname'].errors['maxlength']">{{errorMessages.fullname.length}}</span>
+                               
+                      </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="gender">Gender</label>
+                      <select name="gender" id="gender" class="form-select" style="padding: 9px 11px!important;
+                        font-size: 0.8125rem!important;border : 1px solid #ebedf2;" formControlName="gender"
+                       >
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': (formSubmitted ||  s['email'].touched)
+                      && s['email'].errors }"/>
+                      <div class="invalid-feedback" *ngIf="(formSubmitted ||  s['email'].touched) && s['email'].errors">
+                        <span *ngIf="s['email'].errors['required']">{{errorMessages.email.required}}</span> 
+                        <span *ngIf="s['email'].errors['pattern']">{{errorMessages.email.pattern}}</span>
+                        
+                    </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="dateofbirth">Date of birth</label>
+                      <input type="date" class="form-control" id="dateofbirth" placeholder="Date of Birth" formControlName="dob"  [ngClass]="{ 'is-invalid': (formSubmitted ||  s['dob'].touched)
+                      && s['dob'].errors }"/>
+                      <div class="invalid-feedback" *ngIf="(formSubmitted ||  s['dob'].touched) && s['dob'].errors">
+                        <span *ngIf="s['dob'].errors['required']">{{errorMessages.dob.required}}</span> 
+                        
+                    </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="mobileNumber">Mobile Number</label>
+                      <input type="text" class="form-control" id="mobileNumber" placeholder="Mobile Number" formControlName="mobileNumber" [ngClass]="{ 'is-invalid': (formSubmitted ||  s['mobileNumber'].touched)
+                      && s['mobileNumber'].errors }"/>
+                      <div class="invalid-feedback" *ngIf="(formSubmitted ||  s['mobileNumber'].touched) && s['mobileNumber'].errors" [ngClass]="{ 'is-invalid': (formSubmitted ||  s['mobileNumber'].touched)
+                      && s['mobileNumber'].errors }">
+                        <span *ngIf="s['mobileNumber'].errors['required']">{{errorMessages.mobileNumber.required}}</span>
+                        <span *ngIf="s['mobileNumber'].errors['minlength'] || s['mobileNumber'].errors['maxlength']">{{errorMessages.mobileNumber.length}}</span>
+                         
+                     </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="specialization">Specialization</label>
+                        <select name="specialization" id="specialization" class="form-select" style="padding: 9px 11px!important;
+                        font-size: 0.8125rem!important;border : 1px solid #ebedf2;" formControlName="specialization" >
+                            <option value="btech">B-Tech</option>
+                            <option value="mtech">M-Tech</option>
+                            <option value="be">BE</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="phonenumber">Branch</label>
+                        <select name="branch" id="branch" class="form-select" style="padding: 9px 11px!important;
+                        font-size: 0.8125rem!important;border : 1px solid #ebedf2;" formControlName="branch">
+                            <option value="computer-science">Computer Science</option>
+                            <option value="information-technology">Information Technology</option>
+                            <option value="civil">Civil Engineering </option>
+                            <option value="electrical">Electrical Engineering</option>
+                            <option value="mining">Mining Engineering</option>
+                            <option value="mechanical">Mechanical Engineering</option>
+                            <option value="electrical-and-telecommunication">Electrical and Telecommunication Engineering</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="phonenumber">Semester</label>
+                        <select name="semester" id="semester"class="form-select" style="padding: 9px 11px!important;
+                        font-size: 0.8125rem!important;border : 1px solid #ebedf2;" formControlName="semester">
+                            <option value="1">I</option>
+                            <option value="2">II</option>
+                            <option value="3">III</option>
+                            <option value="4">IV</option>
+                            <option value="5">V</option>
+                            <option value="6">VI</option>
+                            <option value="7">VII</option>
+                            <option value="8">VIII</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="rollno">Roll No</label>
+                      <input type="rollno" class="form-control" id="rollno" placeholder="Enter Roll No" formControlName="rollno" [ngClass]="{ 'is-invalid': (formSubmitted ||  s['rollno'].touched)
+                      && s['rollno'].errors }"/>
+                      <div class="invalid-feedback" *ngIf="(formSubmitted ||  s['rollno'].touched) && s['rollno'].errors" [ngClass]="{ 'is-invalid': (formSubmitted ||  s['rollno'].touched)
+                      && s['rollno'].errors }">
+                        <span *ngIf="s['rollno'].errors['required']">{{errorMessages.rollno.required}}</span>
+                        <span *ngIf="s['rollno'].errors['minlength'] || s['rollno'].errors['maxlength']">{{errorMessages.rollno.length}}</span>
+                         
+                     </div>
+                    </div>
+                    <div class="forms-sample">
+                        <button type="submit" class="btn btn-primary mr-2" *ngIf="!updateData"  (click)="submitStudentRegistrationForm()"> Add Student </button>
+                        <button type="submit" class="btn btn-primary mr-2" *ngIf="updateData" (click)="update()"> Update  </button>
+                        <button class="btn btn-light" (click)="resetStudentRegistrationForm()">Reset Form</button>
+                    </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+            <app-manage-students (newItemEvent) = "bindValue($event)"></app-manage-students>
+
+          </div>
+        </div>
+        
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>

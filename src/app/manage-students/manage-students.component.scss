@@ -1,0 +1,86 @@
+.btn-edit, .btn-delete{
+    padding: 10px 13px;
+    background-color: white;
+    border: 1px solid #3e4b5b;
+    color: #3e4b5b;
+    border-radius: 50%;
+}
+.btn-edit:hover{
+    background-color: #3e4b5b;
+    color: white;
+}
+
+.btn-delete:hover{
+    background-color: #3e4b5b;
+    color: white;
+}
+
+
+table {
+    --table-border: 1px solid rgba(0, 0, 0, 0.5);
+    margin: 15px auto;
+    border: var(--table-border);
+    // max-width: 55em;
+    thead{
+      color: white;
+
+    }
+    td, th {
+      padding: 0.25em 0.45em;
+      font-size: 0.99em;
+    //   line-height: 1.55em;
+      min-width: 6.5em;
+      
+      &:first-child {
+        min-width: 2em;
+        height: 3em;
+        text-align: center;
+      }
+      &.selected {
+        font-weight: 600;
+        color: #3e4b5b;
+        border-bottom: var(--table-border);
+        border-bottom-size: medium;
+        background: rgba(225, 225, 225, 0.35);
+      }
+    }
+    tbody tr {
+      &:nth-child(even) {
+        background-color: rgba(220, 220, 220, 0.5);
+      }
+      &:nth-child(odd) {
+        background-color: rgba(220, 220, 220, 0.05);
+      }
+    }
+    thead tr {
+        
+      background: #3e4b5b;
+    }
+    th {
+      position: relative;
+      a {
+        text-decoration: none;
+        color: #eeeeee;
+        &:hover, &:focus {
+          text-decoration: underline;
+          color: #f5f5f5;
+        }
+        &:after {
+          content: "";
+          break-before: avoid;
+        }
+      }
+      &.selected {
+        font-size: 1.1em;
+        a:link, a:visited {
+          color: #fce4ec;
+        }
+        a:after {
+          content: " ↥";
+        }
+        &.desc a:after {
+          content: " ↧";
+        }
+      }
+    }
+  }

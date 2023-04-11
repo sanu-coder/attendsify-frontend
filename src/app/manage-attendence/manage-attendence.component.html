@@ -1,0 +1,77 @@
+
+
+            <div class=" grid-margin stretch-card">
+                <div class="card">
+                    
+                  <div class="card-body">
+
+                    <h4 class="card-title"><u>Manage Attendence Details</u></h4>
+                    <br> 
+                    <b style="text-decoration: underline;">Note : </b>&nbsp; <span style="color: red;">Here, we track the records of those students who have scannned there QR code 20 min ago.</span> 
+                    
+                    <br><br><br>
+
+                    <div class="form-group" *ngIf="!qrCodeString">
+                      <label for="subject">Subject</label>
+                      <select name="subject" id="subject" [(ngModel)]="subject1" (change)="refresh1()" class="form-select branches" style="padding: 10px 15px!important;
+                      font-size: 15px!important;border : 1px solid #ebedf2;" >
+                          <option value="">--------------Select--------------</option>
+                          <option *ngFor="let class of classes" [value]="class._id">{{class.subject}} - [{{class.semester 
+                          }}th Semester, {{class.branch}}] </option>
+                      </select>
+                  </div>
+                    <div class="page-header flex-wrap">
+                        
+                        <div class="d-flex" *ngIf="qrCodeString">
+                          <button type="button" class="btn btn-sm btn-success" (click)="refresh()"> Refresh </button>
+                          <button class="btn btn-danger ml-3" style="background-color: #ff3c52;" (click)="markAbsent()">Mark Others as Absent</button>
+                          
+                        </div>
+                      </div>
+                      
+                   
+                    
+                      <div class="grid-margin stretch-card"  *ngIf="currentRecords" >
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Students List</h4>
+                            <div class="table-responsive">
+                              <table datatable class="table-bordered sticky-enabled cols-4 sticky-table sort" [dtOptions]="dtOptions">
+                                <thead class="tableHeader-processed">
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Roll No</th>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Status</th>
+                                    <th>Date Of Birth</th>
+                            
+                                  </tr>
+                                </thead>
+                                <tbody *ngIf="currentRecords">
+                                  <tr *ngFor="let student of currentRecords;let i=index;">
+                                    <td>{{i+1}}</td>
+                                    <td>{{student.studentDetails.rollno}}</td>
+                                    <td>{{student.studentDetails.fullname}}</td>
+                                    <td>{{student.studentDetails.gender}}</td>
+                                    <td>{{student.studentDetails.email}}</td>
+                                    <td>{{student.studentDetails.mobileNumber}}</td>
+                                    <td >
+                                      <span *ngIf="student.status == 'present'" style="font-weight: bolder;color:green;text-transform: capitalize;">{{student.status}}</span>
+                                      <span *ngIf="student.status == 'absent'" style="font-weight: bolder;color:red;text-transform: capitalize;">{{student.status}}</span>
+                                    
+                                    </td>
+                                    <td>{{student.studentDetails.dob}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                  </div>
+                </div>
+              </div>

@@ -1,0 +1,44 @@
+<div class=" grid-margin stretch-card">
+    <div class="card" id="manageClass">
+      <div class="card-body">
+        <h4 class="card-title"><u>Manage Class</u></h4>
+          <div class="grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div style="display: flex; justify-content: space-between;">
+                  <h4 class="card-title">Classes</h4>
+                <button class="btn btn-primary" (click)="refresh()">Refresh</button>
+                </div>
+                
+                <br>
+                <div class="table-responsive">
+                  <table datatable class="table-bordered sticky-enabled cols-4 sticky-table sort" *ngIf="classes" [dtOptions]="dtOptions">
+                    <thead class="tableHeader-processed">
+                      <tr>
+                        <th>#</th>
+                        <th>Subject</th>
+                        <th>Semester</th>
+                        <th >Branch</th>
+                        
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let class of classes;let i= index">
+                        <td>{{i+1}}</td>
+                        <td>{{class.subject}}</td>
+                        <td>{{class.semester}}</td>
+                        <td>{{class.branch}}</td>
+                        <td><button class="btn-edit" (click)="update(i)"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn-delete" (click)="delete(i)"><i class="fa fa-trash-o"></i></button></td>
+                    </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>

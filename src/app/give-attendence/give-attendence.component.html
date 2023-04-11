@@ -1,0 +1,44 @@
+
+
+<div class="container-scroller" style="min-height: 100vh;">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+     <app-navbar1></app-navbar1>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <button class="btn btn-primary" (click)="activateQRScanner()" [disabled] = "buttonClicked">Give Attendance</button>
+                </div>
+                <div class="card-body activateQR"  *ngIf="buttonClicked==true">
+                    <div class="activateQR" *ngIf="buttonClicked==true">
+                      <!-- For camera -->
+                      <ngx-scanner-qrcode #action="scanner" (data)="onValueChanges($event)"></ngx-scanner-qrcode>
+
+                      <!-- <p class="data">{{ action.data | async }}</p> -->
+                      <button class="btn btn-warning mr-2" *ngIf="action.data" (click)="changeHandler(action.data)">scan</button>
+                      <p *ngIf="action.isLoading">⌛ Loading...</p>
+
+                     
+                      <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading">
+                        <img *ngIf="!action.isStart" (click)="handle(action, 'start')" src="https://img.icons8.com/ios/50/000000/no-camera--v2.png" width="30px"/>
+                        <img *ngIf="action.isStart" (click)="handle(action, 'stop')" src="https://img.icons8.com/ios/50/000000/no-camera--v1.png" width="30px"/>
+                      </button>
+                    </div>
+                    
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+
+  <!-- Attend today, and achieve tomorrow -->

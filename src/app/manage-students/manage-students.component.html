@@ -1,0 +1,80 @@
+            <div class=" grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"><u>Manage Students Details</u></h4>
+                    <br> <br>
+                    <div class="form-group">
+                        <label for="phonenumber">Semester</label>
+                        <div style="display: flex;justify-content: space-between;">
+                          <select name="semester" id="semester" class="form-select branches" style="padding: 15px 15px!important;
+                          font-size: 15px!important;border : 1px solid #ebedf2;" [(ngModel)]="optionSelected" (change)="fetchStudentsDetails()">
+                              <option value="">--------------Select--------------</option>
+                              <option value="1-CS">Ist Semester, Computer Science Branch</option>
+                              <option value="2-CS">IInd> Semester, Computer Science Branch</option>
+                              <option value="3-CS">IIIrd Semester, Computer Science Branch</option>
+                              <option value="4-CS">IVth Semester, Computer Science Branch</option>
+                              <option value="5-CS">Vth Semester, Computer Science Branch</option>
+                              <option value="6-CS">VIth Semester, Computer Science Branch</option>
+                              <option value="7-CS">VIIth Semester, Computer Science Branch</option>
+                              <option value="8-CS">VIIIth Semester, Computer Science Branch</option>
+  
+                              <option value="1-IT">Ist Semester, Information Technology Branch</option>
+                              <option value="2-IT">IInd Semester, Information Technology Branch</option>
+                              <option value="3-IT">IIIrd Semester, Information Technology Branch</option>
+                              <option value="4-IT">IVth Semester, Information Technology Branch</option>
+                              <option value="5-IT">Vth Semester, Information Technology Branch</option>
+                              <option value="6-IT">VIth Semester, Information Technology Branch</option>
+                              <option value="7-IT">VIIth Semester, Information Technology Branch</option>
+                              <option value="8-IT">VIIIth Semester, Information Technology Branch</option>
+  
+                          </select> 
+                          <button class="btn btn-warning ml-2" (click)="refresh()">Refresh</button>
+                        </div>
+                       
+                    </div>
+                   
+                    <!-- <br> -->
+                      <div class="grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Students List</h4>
+                            
+                            <div class="table-responsive" *ngIf="dataSource" >
+                              <table  class="table-bordered sticky-enabled cols-4 sticky-table sort"   datatable [dtOptions]="dtOptions">
+                                <thead class="tableHeader-processed">
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Roll No</th>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let data of dataSource;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{data.rollno}}</td>
+                                    <td>
+                                      {{data.fullname}}
+                                      
+                                    </td>
+                                    <td>{{data.gender}}</td>
+                                    <td>{{data.email}}</td>
+                                    <td>{{data.mobileNumber}}</td>
+                                    <td>{{data.dob}}</td>
+                                    <td><button class="btn-edit" (click)="update(i)"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn-delete"  (click)="delete(i)" ><i class="fa fa-trash-o"></i></button></td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                  </div>
+                </div>
+              </div>

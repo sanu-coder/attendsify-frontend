@@ -1,0 +1,60 @@
+.form-select{
+    border-radius: 0px;
+}
+select:focus{
+    border : 1px solid #81cfff;
+    box-shadow: none;
+}
+
+.branches{
+    padding: 18px 25px!important;
+    font-size: 20px!important;
+    option{
+        padding: 2px 15px!important;
+    }
+}
+
+.tag {
+    font-size: 14px;
+    padding: .3em .4em .4em;
+    margin: 0 .1em;
+  }
+  .tag a {
+    color: #bbb;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  .tag a:hover {
+    opacity: 1.0
+  }
+  .tag .remove {
+    vertical-align: bottom;
+    top: 0;
+  }
+  .tag a {
+    margin: 0 0 0 .3em;
+  }
+  .tag a .glyphicon-white {
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .alert-size{
+    border-radius: 20px;
+    padding: 5x 10px;
+    width: 92%;
+  }
+
+  table.dataTable tbody td,th {
+    font-size: 15px;
+    padding: 18px 30px;
+}
+.card-title{
+    font-size: 17px;
+}
+
+
+  @media (max-width: 767px) {
+    .content-wrapper{
+        padding: 1.75rem 1.05rem;
+    }
+  }

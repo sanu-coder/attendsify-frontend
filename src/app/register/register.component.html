@@ -1,0 +1,134 @@
+
+        <div class="row d-flex" style="min-height: 100vh!important;line-height: 35px;word-spacing: 3px;">
+            <div class="col-lg-5 leftbg" >
+               <div class="card1">
+                <div class="row">
+                    <a [href]="url" target="_blank">
+                        <img src="../../assets/img/Attendsify-1 (1).png" style="width: 40%; height: 70px; cursor: pointer;" alt="">
+                    </a>
+        
+                </div>
+<br>
+                <div class="row px-3 justify-content-center mt-4 border-line description" >
+                   <p > <span style="color: rgb(153, 238, 241);font-size: larger;font-weight: 800;text-decoration: underline;">Attendsify</span> is a free attendance web app also known as a tracking app or attendance app for students, in which students can mark their attendance just by logging in to their application.
+                   </p>
+                   <br><br>
+                   <!-- fa-arrow-left -->
+                   <span class="home-page-lnk" > <a [href]="url" target="_blank">Click here to visit our home page</a>  <span><i class="fa fa-arrow-right"></i></span></span>
+                   <br><br>
+                    <!-- <p class="sub-heading"><u>Stay Accurate with our Attendance Management System</u></p>
+
+                    <p><span class="list-bullet"><i class="fa fa-hand-o-right"></i></span>  Automate end-to-end attendance tracking</p>
+                    <p><span class="list-bullet"><i class="fa fa-hand-o-right"></i></span>  Track present students in real-time</p>
+                    
+                    <p><span class="list-bullet"><i class="fa fa-hand-o-right"></i></span>  Easy to create and view attendence reports</p>
+                    <p><span class="list-bullet"><i class="fa fa-hand-o-right"></i></span> Say GoodBye to our previous attendance system</p> -->
+                </div>
+                <div class="row px-3 justify-content-center mt-4 mb-3 border-line">
+                    <img src="../../assets/img/attendence.png" style="width: 70%;" alt="">
+           
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="card2 card border-0 px-4 py-5">
+                <h1 style="text-align: left; color: #203a43;"><u>Create your account</u></h1>
+<br><br>
+                    <form class="needs-validation" [formGroup]="teacherRegistrationForm" novalidate>
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Name</h6></label>
+                            <input type="text" name="name" class="form-control" formControlName="fullname" placeholder="Enter a valid name"
+                            [ngClass]="{ 'is-invalid': (formSubmitted ||  t['fullname'].touched)
+                            && t['fullname'].errors }"
+                            >
+                            <span class="invalid-feedback">
+                                div
+                                {{errorMessages.fullname.required}}
+                            </span>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Email</h6></label>
+                            <input  type="text" name="email" class="form-control " formControlName="email" placeholder="Enter email"
+                            [ngClass]="{ 'is-invalid': (formSubmitted ||  t['email'].touched)
+                            && t['email'].errors }"
+                            >
+                            <div class="invalid-feedback" *ngIf="(formSubmitted ||  t['email'].touched) && t['email'].errors">
+                                <span *ngIf="t['email'].errors['required']">{{errorMessages.email.required}}</span> 
+                                <span *ngIf="t['email'].errors['pattern']">{{errorMessages.email.pattern}}</span>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Department</h6></label>
+                            <select class="form-control form-select " id="department" name="department" formControlName="department" style="margin-top: 2px;border-radius:2px;"
+                            >
+                                <option value="computer-science">Computer Science</option>
+                                <option value="civil">Civil</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="information-technology">Information technology</option>
+                                <option value="mining">Mining</option>
+                                <option value="mechanical">Mechanical</option>
+                              </select>
+                              
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm"> Mobile Number</h6></label>
+                            <input type="text" class="form-control" name="mobileNumber" formControlName="mobileNumber" placeholder="Enter Mobile Number"
+                            [ngClass]="{ 'is-invalid': (formSubmitted ||  t['mobileNumber'].touched)
+                            && t['mobileNumber'].errors }"
+                            >
+                            <div class="invalid-feedback" *ngIf="(formSubmitted ||  t['mobileNumber'].touched) && t['mobileNumber'].errors">
+                               <span *ngIf="t['mobileNumber'].errors['required']">{{errorMessages.mobileNumber.required}}</span>
+                               <span *ngIf="t['mobileNumber'].errors['minlength'] || t['mobileNumber'].errors['maxlength']">{{errorMessages.mobileNumber.length}}</span>
+                                
+                            </div>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm"> Gender</h6></label>
+                            <select class="form-select form-control" id="gender" name="gender" formControlName="gender" style="margin-top: 2px;border-radius:2px;">
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                              </select>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label>
+                            <input type="password" name="password" class="form-control" formControlName="password" placeholder="Enter password"
+                            [ngClass]="{ 'is-invalid': (formSubmitted ||  t['password'].touched)
+                            && t['password'].errors }"
+                            />
+                            <span class="invalid-feedback" *ngIf="(formSubmitted ||  t['password'].touched) && t['password'].errors">
+                                <span *ngIf="t['password'].errors['required']">{{errorMessages.password.required}}</span>
+                                <span *ngIf="t['password'].errors['minlength']">{{errorMessages.password.minLength}}</span> <br/>
+                                <span *ngIf="t['password'].errors['pattern']">{{errorMessages.password.pattern}}</span>
+                                
+                            </span>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Confirm Password</h6></label>
+                            <input type="password" class="form-control" name="confirmPassword" formControlName="confirmPassword" placeholder="Confirm password"
+                            [ngClass]="{ 'is-invalid': (formSubmitted ||  t['confirmPassword'].touched)
+                            && t['confirmPassword'].errors }"
+                            >
+                            <span class="invalid-feedback">
+                                {{errorMessages.confirmPassword.required}}
+                            </span>
+                        </div>
+                    </form>
+                    
+                    <div class="row px-3 mb-4">
+                        <div class="mb-3 form-check">
+                            
+                            <label class="form-check-label" for="exampleCheck1"><input type="checkbox"  class="form-check-input" id="exampleCheck1">Remember me</label>
+                          </div>
+                    </div>
+                    <div class="row mb-3 px-3">
+                        <button type="submit" class="btn btn-blue text-center register-btn" (click)="registerUser()">Register</button>
+                    </div>
+                    <div class="row mb-4 px-3">
+                        <small class="font-weight-bold">Already have an account? <a class="text-danger " routerLink="/login">Login</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    

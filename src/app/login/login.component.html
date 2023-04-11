@@ -1,0 +1,106 @@
+<!-- <div class="container-fluid px-3 px-md-5 px-lg-5 px-xl-5 py-5 mx-auto" style="padding-bottom: 30px;">
+    <div class="card card0 border-0">-->
+        <div class="row d-flex" style="height: 100vh;"> 
+            <div class="col-lg-9 leftbg" >
+                <div class="card1 pb-5">
+                    <div class="row" style="padding: 10px 20px;">
+                    <a [href]="url" target="_blank"><img src="../../assets/img/Attendsify-1 (1).png" class="image1" alt=""></a>
+                        
+        
+                </div>
+                    <br><br>
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                        <img src="https://educloud.app/lms/src/attendance/hero2.png" class="image">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card border-0 px-4 py-5">
+                   
+                    
+                    <form [formGroup]="loginForm">
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Email Address</h6></label>
+                            <input  type="text" class="form-control" name="email" formControlName="email" placeholder="Enter a valid email address" 
+                            [ngClass]="{ 'is-invalid': (formSubmitted ||  t['email'].touched)
+                            && t['email'].errors }">
+                            <div class="invalid-feedback" *ngIf="(formSubmitted ||  t['email'].touched) && t['email'].errors">
+                                <span *ngIf="t['email'].errors['required']">{{errorMessages.email.required}}</span>
+                                <span *ngIf="t['email'].errors['pattern']">{{errorMessages.email.pattern}}</span>
+                            </div>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label>
+                            <input type="password" class="form-control" name="password" formControlName="password" placeholder="Enter password"
+                            [ngClass]="{ 'is-invalid': (formSubmitted ||  t['password'].touched)
+                            && t['password'].errors }">
+                            <span class="invalid-feedback" *ngIf="(formSubmitted ||  t['password'].touched) && t['password'].errors">
+                                <span *ngIf="t['password'].errors['required']">{{errorMessages.password.required}}</span>
+                                <span *ngIf="t['password'].errors['minlength']">{{errorMessages.password.minLength}}</span> <br>
+                                <span *ngIf="t['password'].errors['pattern']">{{errorMessages.password.pattern}}</span>
+                                
+                            </span>
+                        </div>
+                        <div class="row px-3 mb-4">
+                              
+                              <label class="mb-2"><h6 class="mb-0 text-sm">Login as </h6></label>
+                                <!-- <div style="--bs-gutter-x: 0;display: flex;justify-content: space-evenly;"> -->
+                                    <div class="form-check">
+                                       
+                                        <label class="form-check-label" for="teacher">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="teacher"  value="teacher" (change)="handleChange($event)" checked>Teacher
+                                        </label>
+                                      </div>
+                    
+                                      <div class="form-check">
+                                        
+                                        <label class="form-check-label" for="student">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="student" value="student" (change)="handleChange($event)">Student
+                                        </label>
+                                      </div>
+                                <!-- </div> -->
+                              
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <div class="mb-3 form-check">
+                                <label class="form-check-label" for="exampleCheck1"><input type="checkbox" class="form-check-input" id="exampleCheck1">Remember me</label>
+                              </div>
+                        </div>
+                    </form>
+                    
+                    
+                    <div class="row mb-3 px-3">
+                        <button type="submit" class="btn btn-blue text-center login-btn" (click)="loginFormSubmit()">Login</button>
+                    </div>
+                    <div class="row mb-4 px-3">
+                        <small class="font-weight-bold">Don't have an account? <a class="text-danger " routerLink="/register">Register</a></small>
+                    </div>
+
+                    <div class="row px-3 mb-4">
+                        <div class="line"></div>
+                        <small class="or text-center">Or</small>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="row mb-4 px-3">
+                        <div (click)="loginWithGoogle()"  >
+                               <asl-google-signin-button ></asl-google-signin-button>
+                        </div>
+                        <!-- <button >Sign In with Google</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="bg-blue py-4">
+            <div class="row px-3">
+                <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+                <div class="social-contact ml-4 ml-sm-auto">
+                    <span class="fa fa-facebook mr-4 text-sm"></span>
+                    <span class="fa fa-google-plus mr-4 text-sm"></span>
+                    <span class="fa fa-linkedin mr-4 text-sm"></span>
+                    <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span>
+                </div>
+            </div>
+        </div> -->
+    <!-- </div>
+</div> -->

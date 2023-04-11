@@ -1,0 +1,74 @@
+<div class="container-scroller" style="min-height: 100vh;">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+      <app-navbar1></app-navbar1>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row" id="addClass">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title"><u>Add Class</u></h4>
+                  <br>
+                  
+                   
+                  <form class="row forms-sample" [formGroup]="addClassForm">
+                    <!-- sem,branch, subject name -->
+                    <div class="form-group col-md-4">
+                        <label for="semester">Semester</label>
+                        <select class="form-control form-select " id="semester" name="semester" formControlName="semester" style="margin-top: 2px;border-radius:0px;"
+                            >
+                                <option value="1">I</option>
+                                <option value="2">II</option>
+                                <option value="3">III</option>
+                                <option value="4">IV</option>
+                                <option value="5">V</option>
+                                <option value="6">VI</option>
+                                <option value="7">VII</option>
+                                <option value="8">VIII</option>
+                        </select>
+                      </div>
+                    <div class="form-group col-md-4">
+                        <label for="branch">Branch</label>
+                        <select class="form-control form-select " id="branch" name="branch" formControlName="branch" style="margin-top: 2px;border-radius:0px;"
+                            >
+                                <option value="computer-science">Computer Science</option>
+                                <option value="civil">Civil</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="information-technology">Information technology</option>
+                                <option value="mining">Mining</option>
+                                <option value="mechanical">Mechanical</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" name="subject" formControlName="subject" placeholder="Enter Subject"
+                            [ngClass]="{ 'is-invalid': (formSubmitted ||  t['subject'].touched)
+                            && t['subject'].errors }"
+                            >
+                            <div class="invalid-feedback" *ngIf="(formSubmitted ||  t['subject'].touched) && t['subject'].errors">
+                               <span *ngIf="t['subject'].errors['required']">{{errorMessages.subject.required}}</span>
+                               
+                            </div>
+                      </div>
+                      <div class="form-group col-md-12" style="text-align: center;">
+                        <button class="btn btn-warning" *ngIf="updateData==false" (click)="submit()">Add this Class</button>
+                        <button class="btn btn-warning" *ngIf="updateData==true" (click)="update()">Update</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            <app-manage-classes (newItemEvent) = "bindValue($event)"></app-manage-classes>
+          </div>
+        </div>
+        
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+
+  <!-- Attend today, and achieve tomorrow -->

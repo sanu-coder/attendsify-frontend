@@ -1,0 +1,92 @@
+
+
+<div class="container-scroller" style="min-height: 100vh;">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+     <app-navbar1></app-navbar1>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class=" rounded bg-white">
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px"  [src]="imageUrl"><span class="font-weight-bold">{{user.fullname}}</span><span class="text-black-50">{{user.email}}</span><span> </span></div>
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                      <button type="button" class="btn-delete" data-toggle="modal" data-target="#exampleModal">
+                        Delete Account
+                      </button>
+                    </div>
+                  </div>
+               
+
+                <div class="col-md-9 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Profile Settings</h4>
+                            <button class="btn-edit"  *ngIf="readOnly" (click)="edit()"><i class="fa fa-edit"></i></button>
+                            <button class="btn-edit"  *ngIf="!readOnly" (click)="update()">Save Profile</button>
+                        </div>
+                        <div class="row mt-3">
+                          <div class="col-md-12 "><label class="labels">Fullname</label><input type="text" class="form-control" placeholder="Full name" [(ngModel)]="user.fullname" [readonly]="readOnly"></div>  <br> <br>
+                            <div class="col-md-12 mt-3"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" [(ngModel)]="user.mobileNumber" [readonly]="readOnly"></div>  <br>
+                            <div class="col-md-12 mt-3"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" [readOnly]="readOnly"></div> 
+                            <div class="col-md-12 mt-3"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="Gender" [(ngModel)]="user.gender" [readOnly]="readOnly"></div> 
+                            <div class="col-md-12 mt-3"><label class="labels">Department</label><input type="text" class="form-control" placeholder="Department" [(ngModel)]="user.department" [readOnly]="readOnly"></div> 
+                            <div class="col-md-12 mt-3"><label class="labels">Role</label><input type="text" class="form-control" [(ngModel)]="user.role" readOnly></div> 
+                        </div>
+                        
+                        <hr class="mt-4" style="border: 0.5px solid rgb(173, 173, 173);">
+                        <div *ngIf="user.role === 'teacher'">
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Classes registered by you</h4>
+                          </div>
+                          <div class="row mt-3">
+                            <div class="row">
+                              <p  class="col-md-6" *ngFor="let class of classes" style="margin-top: 7px;"> <i class="mdi mdi-brightness-7"></i> &nbsp;&nbsp; <span >{{class.subject}}, {{class.branch}}</span> </p> <br>
+                            </div>
+                          </div>
+                        </div>
+                        
+
+                   
+                </div>
+                
+                
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+      </div>
+
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete Account</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <span class="badge badge-warning"><i class="mdi mdi-alert"></i> Warning</span> <br> <br>
+              <p>The action cannot be reversed.</p>
+               <p>Are you sure you want to delete your account?</p>
+               <input type="checkbox" id="confirmation">&nbsp; <label for="confirmation">I understand the consequences please delete my account.</label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"  style="border-radius: 20px;" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" style="border-radius: 20px;" (click)="delete()">Delete my account</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- main-panel ends -->
+    <!-- </div> -->
+    <!-- page-body-wrapper ends -->
+  <!-- </div> -->
+
+
+  <!-- Attend today, and achieve tomorrow -->
