@@ -4,6 +4,11 @@
 
 export const environment = {
     production: true,
+    timer : 3000,
+    secret : 'euiuweicn84390#5*5',
+    apiUrl : "https://attendsify-backend.onrender.com",
+    randomString : "",
+    homePageUrl : "https://sanu-coder.github.io/attendsify/Attendsify_HomePage/"
   };
   
   /*
