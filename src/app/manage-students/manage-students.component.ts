@@ -60,7 +60,7 @@ export class ManageStudentsComponent implements OnInit {
   }
   delete(i){
     this.attendenceBackendService.deleteStudent(this.dataSource[i]._id).then(async(response:any) => {
-      if(response.result==="success"){
+      if(response.result==="success"){ 
         this.toastr.success('Student has been deleted to the database','Success', environment.alertProperties);
       }else{
         this.toastr.error(response.message,'Failure', environment.alertProperties)

@@ -41,7 +41,7 @@ export class ClassesComponent implements OnInit {
     this.attendenceBackendService.updateClass(this.classId, this.addClassForm.value).then((response:any) => {
       console.log(response);
       if(response.result==="success"){
-        this.toastr.success('Class has been updated to the database','Success', environment.alertProperties);
+        this.toastr.success('Class has been updated to the database','Success', {timeOut : 2000, progressBar : true,closeButton:true});
       }else{
         this.toastr.error(response.message,'Failure', environment.alertProperties)
       }

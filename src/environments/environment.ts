@@ -6,8 +6,17 @@ export const environment = {
   production: false,
   timer : 3000,
   secret : 'euiuweicn84390#5*5',
+  alertProperties : {timeOut : 2000, progressBar : true,closeButton:true},
   apiUrl : "https://attendsify-backend.onrender.com",
   randomString : "",
+  dtOptions : {
+    pageLength: 5,
+    pagingType : `full_numbers`,
+    processing: true,
+    lengthMenu : [5, 10, 25],
+    dom : 'Bfrtip',
+    buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'] 
+  },
   homePageUrl : "https://sanu-coder.github.io/attendsify/Attendsify_HomePage/"
 };
 
